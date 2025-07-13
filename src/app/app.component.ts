@@ -1,12 +1,34 @@
-import { Component } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { TodosComponent } from './todos/todos.component';
+import { todosLoaded, TodoStore } from './todos.store';
+import { MatSpinner } from '@angular/material/progress-spinner';
+import { Dispatcher } from '@ngrx/signals/events';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  imports: [TodosComponent, MatSpinner],
+  template: `
+    <div class="app">
+      @if (!store.isLoading()) {
+        <app-todos />
+      } @else {
+        <mat-spinner />
+      }
+    </div>
+  `,
+  styles: `
+    .app {
+      display: flex;
+      justify-content: center;
+    }
+  `,
 })
-export class AppComponent {
-  title = 'ngrx-signal-store-example';
+export class AppComponent implements OnInit {
+  readonly store = inject(TodoStore);
+  readonly dispatcher = inject(Dispatcher);
+
+  ngOnInit(): void {
+    this.dispatcher.dispatch(todosLoaded());
+  }
 }
