@@ -3,6 +3,7 @@
 This repository is an example Angular application demonstrating the use of [NgRx Signal Store](https://ngrx.io/guide/signal-store) to manage state reactively in Angular.
 
 ## Features
+
 - **Reactive State Management:** Uses NgRx Signal Store for local state with computed properties, reducers, and effects.
 - **Todo CRUD:** Add, update, and delete todos.
 - **Filtering:** View all, pending, or completed todos.
@@ -10,10 +11,12 @@ This repository is an example Angular application demonstrating the use of [NgRx
 ## Getting Started
 
 ### Prerequisites
+
 - [Node.js](https://nodejs.org/) (v18+ recommended)
 - [Angular CLI](https://angular.io/cli)
 
 ### Running the App
+
 ```bash
 ng serve
 ```
@@ -46,6 +49,7 @@ ng test
 ### How it works
 
 The `flake.nix` provides:
+
 - **Development shell**: Node.js 20 + Angular CLI
 - **Default app**: Runs `npm install && ng serve` automatically
 

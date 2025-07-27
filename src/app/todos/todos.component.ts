@@ -1,16 +1,14 @@
-import { Component, effect, inject, OnInit, viewChild } from '@angular/core';
+import { Component, effect, inject, viewChild } from '@angular/core';
 import {
   todoAdded,
   todoDeleted,
   todosFiltered,
-  todosLoaded,
   TodoStore,
   todoUpdated,
 } from '../todos.store';
-import { JsonPipe, NgStyle } from '@angular/common';
-import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
+import {  NgStyle } from '@angular/common';
+import {  ReactiveFormsModule} from '@angular/forms';
 import { Dispatcher } from '@ngrx/signals/events';
-import { CreateTodo, Todo } from '../todos.service';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule, MatLabel } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
@@ -18,7 +16,11 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatButtonToggleChange, MatButtonToggleGroup, MatButtonToggleModule } from '@angular/material/button-toggle';
+import {
+  MatButtonToggleChange,
+  MatButtonToggleGroup,
+  MatButtonToggleModule,
+} from '@angular/material/button-toggle';
 import { MatBadgeModule } from '@angular/material/badge';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 

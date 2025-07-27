@@ -1,10 +1,10 @@
 import { Injectable, signal } from '@angular/core';
 import { delay, EMPTY, Observable, of } from 'rxjs';
 
-export type CreateTodo = {
+export interface CreateTodo {
   title: string;
   completed: boolean;
-};
+}
 
 export type Todo = CreateTodo & {
   id: string;
@@ -38,10 +38,12 @@ export class TodosService {
     return of(todoId);
   }
 
-  updateTodo([id, completed]: [string, boolean]): Observable<[string, boolean]> {
+  updateTodo([id, completed]: [string, boolean]): Observable<
+    [string, boolean]
+  > {
     this.remoteStore.update((store) =>
-      store.map(todo => todo.id === id ? { ... todo, completed } : todo)
-    )
+      store.map((todo) => (todo.id === id ? { ...todo, completed } : todo)),
+    );
 
     return of([id, completed]);
   }
