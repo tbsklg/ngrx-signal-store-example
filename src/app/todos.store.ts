@@ -21,11 +21,11 @@ import { mapResponse, tapResponse } from '@ngrx/operators';
 
 export type TodosFilter = 'all' | 'pending' | 'completed';
 
-type TodoState = {
+interface TodoState {
   todos: Todo[];
   filter: TodosFilter;
   isLoading: boolean;
-};
+}
 
 const initialState: TodoState = {
   todos: [],

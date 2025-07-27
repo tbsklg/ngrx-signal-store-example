@@ -1,10 +1,10 @@
 import { Injectable, signal } from '@angular/core';
 import { delay, EMPTY, Observable, of } from 'rxjs';
 
-export type CreateTodo = {
+export interface CreateTodo {
   title: string;
   completed: boolean;
-};
+}
 
 export type Todo = CreateTodo & {
   id: string;
