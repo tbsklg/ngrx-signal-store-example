@@ -1,5 +1,4 @@
 import { Component, inject, OnInit } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
 import { TodosComponent } from './todos/todos.component';
 import { todosLoaded, TodoStore } from './todos.store';
 import { MatSpinner } from '@angular/material/progress-spinner';

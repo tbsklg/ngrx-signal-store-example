@@ -38,10 +38,12 @@ export class TodosService {
     return of(todoId);
   }
 
-  updateTodo([id, completed]: [string, boolean]): Observable<[string, boolean]> {
+  updateTodo([id, completed]: [string, boolean]): Observable<
+    [string, boolean]
+  > {
     this.remoteStore.update((store) =>
-      store.map(todo => todo.id === id ? { ... todo, completed } : todo)
-    )
+      store.map((todo) => (todo.id === id ? { ...todo, completed } : todo)),
+    );
 
     return of([id, completed]);
   }
